@@ -1,0 +1,1 @@
+# earnix-challenge-ethias-2025
