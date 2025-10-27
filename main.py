@@ -4,9 +4,15 @@ from scipy import stats
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+
 DF = DataFactor(db_path='db')
 df = DF.getriskdb()
 
+df = DF.replace_empty_cost(dataframe=df)
+
+df = DF.replace_mode_mean(dataframe=df)
+df.to_csv('db/clean_train.csv', sep=";", index=False)
+exit()
 
 df['Totalcost'] = df['Totalcost'].fillna(0)
 df['M_ClaimCount'] = df['M_ClaimCount'].astype(float)
